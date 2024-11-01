@@ -65,7 +65,7 @@ function getEventFormModalBody(event, saveCallback, deleteCallBack) {
 		endTimeInput.min = startTimeInput.value;
 	});
 
-	const colorRadio = form.querySelector(`[data-color][value="${event.color}"`);
+	const colorRadio = form.querySelector(`[data-color][value="${event.color}"]`);
 	if (colorRadio) colorRadio.checked = true;
 
 	form.addEventListener('submit', e => {
