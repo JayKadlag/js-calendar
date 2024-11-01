@@ -10,8 +10,8 @@ document.addEventListener('keydown', e => {
 });
 
 const eventModalTemplate = document.getElementById('event-form-template');
-export function openAddEventModal(date) {
-	openModal(getEventFormModalBody({date}, event => console.log(event)));
+export function openAddEventModal(date, saveCallback) {
+	openModal(getEventFormModalBody({date}, saveCallback));
 }
 
 export function openEditEventModel(event) {
