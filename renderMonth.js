@@ -2,6 +2,7 @@ import {
 	eachDayOfInterval,
 	endOfMonth,
 	endOfWeek,
+	format,
 	isSameDay,
 	isSameMonth,
 	startOfMonth,
@@ -12,6 +13,11 @@ import createDayElement from './createDayElement';
 const daysContainer = document.querySelector('[data-calendar-days]');
 
 const renderMonth = monthDate => {
+	document.querySelector('[data-month-title]').textContent = format(
+		monthDate,
+		'MMMM yyyy'
+	 );
+
 	const dayElements = getCalenderDates(monthDate).map((date, index) => {
 		return createDayElement(date, {
 			isCurrentMonth: isSameMonth(monthDate, date),
