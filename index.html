@@ -15,7 +15,7 @@
 				</div>
 				<span class="month-title">April 2021</span>
 			</div>
-			<div class="days">
+			<div class="days" data-calendar-days>
 				<div class="day non-month-day">
 					<div class="day-header">
 						<div class="week-name">Mon</div>
@@ -400,6 +400,42 @@
 					<button class="btn btn-delete" type="button">Delete</button>
 				</div>
 			</form>
+		</template>
+
+		<template id="day-template">
+			<div class="day" data-date-wrapper>
+				<div class="day-header">
+					<div class="week-name" data-week-name></div>
+					<div class="day-number" data-day-number></div>
+					<button class="add-event-btn" data-add-event-btn></button>
+				</div>
+				<div class="events">
+					<button class="all-day-event green event">
+						<div class="event-name">Short</div>
+					</button>
+					<button class="event">
+						<div class="color-dot blue"></div>
+						<div class="event-time">7am</div>
+						<div class="event-name">Event Name</div>
+					</button>
+					<button class="event">
+						<div class="color-dot green"></div>
+						<div class="event-time">8am</div>
+						<div class="event-name">Event Name</div>
+					</button>
+					<button class="event">
+						<div class="color-dot blue"></div>
+						<div class="event-time">9am</div>
+						<div class="event-name">Event Name</div>
+					</button>
+					<button class="event">
+						<div class="color-dot blue"></div>
+						<div class="event-time">10am</div>
+						<div class="event-name">Event Name</div>
+					</button>
+				</div>
+				<button class="events-view-more-btn"></button>
+			</div>
 		</template>
 
 		<script type="module" src="/main.js"></script>
