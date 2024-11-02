@@ -1,7 +1,7 @@
 import {format} from 'date-fns';
 import createEventElement from './createEventElement';
 import {addEvent, getEventsForDay} from './events';
-import {openAddEventModal} from './modal';
+import {openAddEventModal, openViewAllModal} from './modal';
 import renderMonth from './renderMonth';
 
 const dayTemplate = document.getElementById('day-template');
@@ -34,6 +34,12 @@ export default function createDayElement(date, options = {}) {
 				addEvent(event);
 				renderMonth(date);
 			});
+		});
+
+	dayElement
+		.querySelector('[data-view-more-btn]')
+		.addEventListener('click', () => {
+			openViewAllModal(date, getEventsForDay(date).map(createEventElement ));
 		});
 
 	const dayNumberElement = dayElement.querySelector('[data-day-number]');

@@ -9,6 +9,17 @@ document.addEventListener('keydown', e => {
 	if (e.key === 'Escape') closeModal();
 });
 
+const viewAllModalTemplate = document.getElementById('view-all-events-template');
+export function openViewAllModal(date, eventElements) {
+	const modalBody = viewAllModalTemplate.content.cloneNode(true);
+	modalBody.querySelector('[data-title]').textContent = format(
+		date,
+		'M/d/yyyy'
+	);
+	eventElements.forEach(event => modalBody.append(event));
+	openModal(modalBody);
+}
+
 const eventModalTemplate = document.getElementById('event-form-template');
 export function openAddEventModal(date, saveCallback) {
 	openModal(getEventFormModalBody({date}, saveCallback));

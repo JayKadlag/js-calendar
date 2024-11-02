@@ -1,5 +1,5 @@
 import {addMonths} from 'date-fns';
-import renderMonth from './renderMonth';
+import renderMonth, {fixEventOverflow} from './renderMonth';
 import './style.css';
 
 let selectedMonth = Date.now();
@@ -20,6 +20,14 @@ document
 document.querySelector('[data-today-btn]').addEventListener('click', () => {
 	selectedMonth = Date.now();
 	renderMonth(selectedMonth);
+});
+
+let resizeTimeout;
+window.addEventListener('resize', () => {
+	if (resizeTimeout) clearTimeout(resizeTimeout);
+	resizeTimeout = setTimeout(() => {
+		document.querySelectorAll('[data-date-wrapper]').forEach(fixEventOverflow);
+	}, 100);
 });
 
 renderMonth(selectedMonth);

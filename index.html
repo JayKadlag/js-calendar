@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>Calender</title>
+		<title>Calendar</title>
 	</head>
 	<body>
 		<div class="calendar">
@@ -24,30 +24,7 @@
 		</div>
 
 		<template id="view-all-events-template">
-			<div class="modal-title">4/8/21</div>
-			<button class="all-day-event green event">
-				<div class="event-name">Short</div>
-			</button>
-			<button class="event">
-				<div class="color-dot blue"></div>
-				<div class="event-time">7am</div>
-				<div class="event-name">Event Name</div>
-			</button>
-			<button class="event">
-				<div class="color-dot green"></div>
-				<div class="event-time">8am</div>
-				<div class="event-name">Event Name</div>
-			</button>
-			<button class="event">
-				<div class="color-dot blue"></div>
-				<div class="event-time">9am</div>
-				<div class="event-name">Event Name</div>
-			</button>
-			<button class="event">
-				<div class="color-dot blue"></div>
-				<div class="event-time">10am</div>
-				<div class="event-name">Event Name</div>
-			</button>
+			<div class="modal-title" data-title></div>
 		</template>
 
 		<template id="event-form-template">
@@ -136,7 +113,7 @@
 					<button class="add-event-btn" data-add-event-btn>+</button>
 				</div>
 				<div class="events" data-event-container></div>
-				<button class="events-view-more-btn"></button>
+				<button class="events-view-more-btn" data-view-more-btn></button>
 			</div>
 		</template>
 
