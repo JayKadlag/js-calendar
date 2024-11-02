@@ -14,8 +14,8 @@ export function openAddEventModal(date, saveCallback) {
 	openModal(getEventFormModalBody({date}, saveCallback));
 }
 
-export function openEditEventModel(event) {
-	openModal(getEventFormModalBody(event));
+export function openEditEventModel(event, saveCallback, deleteCallBack) {
+	openModal(getEventFormModalBody(event, saveCallback, deleteCallBack));
 }
 
 function getEventFormModalBody(event, saveCallback, deleteCallBack) {

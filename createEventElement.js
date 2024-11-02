@@ -1,9 +1,28 @@
 import {format, parse} from 'date-fns';
+import {removeEvent, updateEvent} from './events';
+import {openEditEventModel} from './modal';
+import renderMonth from './renderMonth';
 
 export default function createEventElement(event) {
-	return event.isAllDay
+	const element = event.isAllDay
 		? createAllDayEventElement(event)
 		: createTimedEventElement(event);
+
+	element.addEventListener('click', () => {
+		openEditEventModel(
+			event,
+			updatedEvent => {
+				updateEvent(updatedEvent);
+				renderMonth(updatedEvent.date);
+			},
+			deletedEvent => {
+				removeEvent(deletedEvent);
+				renderMonth(deletedEvent.date);
+			}
+		);
+	});
+
+	return element;
 }
 
 const allDayEventTemplate = document.getElementById('all-day-event-template');

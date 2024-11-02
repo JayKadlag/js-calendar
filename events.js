@@ -9,6 +9,19 @@ export function addEvent(event) {
 	save();
 }
 
+export function updateEvent(event) {
+	events = events.map(e => {
+		if (e.id === event.id) return event;
+		return e;
+	});
+	save();
+}
+
+export function removeEvent(event) {
+	events = events.filter(e => e.id !== event.id);
+	save();
+}
+
 export function getEventsForDay(date) {
 	return events
 		.filter(event => isSameDay(event.date, date))
